@@ -34,7 +34,7 @@ class Signup extends Component {
     
         firebase
           .auth()
-          .createUserWithEmailAndPassword(this.state.email, this.state.password)
+          .createUserWithEmailAndPassword( this.state.email, this.state.password)
           .then(authRes => {
             const userObj = {
               email: authRes.user.email,
@@ -48,7 +48,7 @@ class Signup extends Component {
                 this.props.history.push('/dashboard');
             }, dbErr => {
               console.log('Failed to add user to the database: ', dbErr);
-              this.setState({ signupError: 'Failed to add user' });
+              this.setState({ signupError: 'Failed to signup user' });
             });
         }, authErr => {
           console.log('Failed to create user: ', authErr);
